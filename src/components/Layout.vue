@@ -1,12 +1,13 @@
 <template>
-    <div class="page4 relative flex flex-col" :style="'--spin_color:' + spin_color + ';' + '--spin_rate:' + spin_rate + ';'">
+<div>
+    <div v-if="enableLayout" class="page4 relative flex flex-col" :style="'--spin_color:' + spin_color + ';' + '--spin_rate:' + spin_rate + ';'">
         <div class=" absolute text-white font-semibold" 
             style="font-size:1.35004vw;left:10.559305vw;top:2.20009vw;">无人值守场站平台</div>
         <div class=" absolute text-r205g234b255"
             style="font-size:0.72324vw;top:5.9305689vw;left:10.8343298vw;">
             <TimerAni :w_val="0.46875" :h_val="1.041666" unit="vw" style="font-size:0.733333vw;"></TimerAni>
         </div>
-        <div class=" absolute"
+        <div class="absolute"
             style="left:10.6vw;top:7.1841851vw;">
             <div class="flex flex-row">
                 <div class="bg-r77g163b207"
@@ -62,9 +63,12 @@
         <!-- profile part -->
         <div class="absolute" style="top:2.34375vw;right:6.9vw;">
             <div class="flex flex-row items-center">
-                <div class="cursor-pointer" style="width:1.145833vw;height:1.041666vw;">
-                    <img src="../assets/img/header_screen_icon.png" alt="" class="h-full w-full">
-                </div>
+                <a href="/page3">
+                    <div class="cursor-pointer" style="width:1.145833vw;height:1.041666vw;">
+                        <img src="../assets/img/header_screen_icon.png" alt="" class="h-full w-full">
+                    </div>
+                </a>
+                
                 <div class="cursor-pointer" style="margin-left:0.96432vw;width:1.145833vw;height:1.041666vw;">
                     <img src="../assets/img/header_sound_icon.png" alt="" class="w-full h-full">
                 </div>
@@ -232,6 +236,10 @@
         <router-view></router-view>
         
     </div>
+
+    <router-view v-if="!enableLayout"></router-view>
+</div>
+    
 </template>
 <script>
 import {mapGetters} from 'vuex'
@@ -240,6 +248,7 @@ import TimerAni from './TimerAni.vue'
 export default {
     data() {
         return {
+            enableLayout: false,
             px_rate: window.innerWidth / 1920,
             spin_color: '#00e697',
             spin_rate: 1,
@@ -287,6 +296,11 @@ export default {
         }
     },
     mounted: function() {
+        if (window.location.pathname === '/page2' || window.location.pathname === '/page3' || window.location.pathname === '/') {
+            this.enableLayout = false
+        }else {
+            this.enableLayout = true
+        }
         this.spinAnimation()
     },
     beforeDestroy: function() {

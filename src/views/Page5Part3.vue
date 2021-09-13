@@ -65,20 +65,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(item, index) in tb_data" :key="index + 'id'" class="text-center" :class="{'hidden': index > num_per_page - 1}">
-                            <td class=" text-r205g234b255" style="padding:1.25vw;">{{addZeroToInt(index + 1)}}</td>
-                            <td class=" text-r205g234b255" style="padding:1.25vw;">{{item.region}}</td>
-                            <td class=" text-r205g234b255" style="padding:1.25vw;">{{item.type}}</td>
-                            <td class=" text-r205g234b255" style="padding:1.25vw;">{{item.communi_num}}</td>
-                            <td class=" text-r205g234b255" style="padding:1.25vw;">{{item.equip_num}}</td>
-                            <td class=" text-r205g234b255" style="padding:1.25vw;">{{item.equip_para}}</td>
-                            <td class=" text-r205g234b255" style="padding:1.25vw;">{{item.status}}</td>
-                            <td class=" text-r205g234b255" style="padding:1.25vw;">{{item.communi_time}}</td>
-                            <td class="" style="padding:1.25vw;">
+                        <tr v-for="(item, index) in tb_data" :key="index + 'id'" class="text-center" :class="{'hidden': index > num_per_page - 1}" style="height:3.645833vw;">
+                            <td class=" text-r205g234b255" style="width:5%">{{addZeroToInt(index + 1)}}</td>
+                            <td class=" text-r205g234b255" style="width:5%">{{item.region}}</td>
+                            <td class=" text-r205g234b255" style="width:5%">{{item.type}}</td>
+                            <td class=" text-r205g234b255" style="width:10%">{{item.communi_num}}</td>
+                            <td class=" text-r205g234b255" style="width:10%">{{item.equip_num}}</td>
+                            <td class=" text-r205g234b255" style="width:20%">{{item.equip_para}}</td>
+                            <td class=" text-r205g234b255" style="width:10%">{{item.status}}</td>
+                            <td class=" text-r205g234b255" style="width:15%">{{item.communi_time}}</td>
+                            <td class="" style="">
                                 <div class="flex flex-row items-center cursor-pointer">
-                                    <div class=" text-r0g230b151 mx-auto underline">编辑</div>
-                                    <div class="text-red-500 mx-auto underline">删除</div>
-                                    <div class=" text-r77g163b207 underline mx-auto">启用</div>
+                                    <div class=" text-r0g230b151 mx-auto underline action-btn">编辑</div>
+                                    <div class="text-red-500 mx-auto underline action-btn">删除</div>
+                                    <div class=" text-r77g163b207 underline mx-auto action-btn">启用</div>
                                 </div>
                             </td>
                         </tr>
@@ -180,6 +180,9 @@ export default {
 }
 .yard_tb {
     margin-top: 2.0833vw;
+}
+.yard_tb .action-btn:hover {
+    font-size: 0.871456vw;
 }
 .pagination .pagination_item {
     width: 1.5625vw;

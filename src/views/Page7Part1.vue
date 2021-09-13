@@ -50,15 +50,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(item, index) in tb_data" :key="index + 'id'" class="text-center" :class="{'hidden': index > num_per_page - 1}">
-                            <td class=" text-r205g234b255" style="padding:1.25vw;">{{addZeroToInt(index + 1)}}</td>
-                            <td class=" text-r205g234b255" style="padding:1.25vw;">{{item.name}}</td>
-                            <td class=" text-r205g234b255" style="padding:1.25vw;">{{item.description}}</td>
-                            <td class=" text-r205g234b255" style="padding:1.25vw;">{{item.account}}</td>
-                            <td class="" style="padding:1.25vw;">
+                        <tr v-for="(item, index) in tb_data" :key="index + 'id'" class="text-center" :class="{'hidden': index > num_per_page - 1}" style="height:3.645833vw;">
+                            <td class=" text-r205g234b255" style="width:10%">{{addZeroToInt(index + 1)}}</td>
+                            <td class=" text-r205g234b255" style="width:20%">{{item.name}}</td>
+                            <td class=" text-r205g234b255" style="width:35%">{{item.description}}</td>
+                            <td class=" text-r205g234b255" style="width:15%">{{item.account}}</td>
+                            <td class="" style="">
                                 <div class="flex flex-row items-center cursor-pointer justify-center">
-                                    <div class=" text-r0g230b151 mr-2 underline">编辑</div>
-                                    <div class="text-red-500 ml-2 underline">删除</div>
+                                    <div class=" text-r0g230b151 mr-2 underline action-btn">编辑</div>
+                                    <div class="text-red-500 ml-2 underline action-btn">删除</div>
                                 </div>
                             </td>
                         </tr>
@@ -186,6 +186,9 @@ export default {
 }
 .yard_tb {
     margin-top: 2.0833vw;
+}
+.yard_tb .action-btn:hover {
+    font-size: 0.871456vw;
 }
 .pagination .pagination_item {
     width: 1.5625vw;

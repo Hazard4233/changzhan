@@ -57,25 +57,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(item, index) in tb_data" :key="index + 'id'" class="text-center" :class="{'hidden': index > num_per_page - 1}">
-                            <td class=" text-r205g234b255" style="padding:1.25vw;">{{addZeroToInt(index + 1)}}</td>
-                            <td class=" text-r205g234b255" style="padding:1.25vw;">{{item.account}}</td>
-                            <td class=" text-r205g234b255" style="padding:1.25vw;">{{item.name}}</td>
-                            <td class=" text-r205g234b255" style="padding:1.25vw;">{{item.department}}</td>
-                            <td class=" text-r205g234b255" style="padding:1.25vw;">{{item.role}}</td>
-                            <td class=" text-r205g234b255" style="padding:1.25vw;">{{item.phone}}</td>
-                            <td class=" text-r205g234b255" style="padding:1.25vw;">
+                        <tr v-for="(item, index) in tb_data" :key="index + 'id'" class="text-center" :class="{'hidden': index > num_per_page - 1}" style="height:3.645833vw;">
+                            <td class=" text-r205g234b255" style="width:5%">{{addZeroToInt(index + 1)}}</td>
+                            <td class=" text-r205g234b255" style="width:5%">{{item.account}}</td>
+                            <td class=" text-r205g234b255" style="width:5%">{{item.name}}</td>
+                            <td class=" text-r205g234b255" style="width:5%">{{item.department}}</td>
+                            <td class=" text-r205g234b255" style="width:5%">{{item.role}}</td>
+                            <td class=" text-r205g234b255" style="width:5%">{{item.phone}}</td>
+                            <td class=" text-r205g234b255" style="width:5%">
                                 <div class=" flex flex-row items-center justify-center">
                                     <div class="rounded-full" style="width:0.4167vw;height:0.416vw;" 
                                         :class="{'bg-r0g230b151': item.status === '正常', 'bg-red-600': item.status !== '正常'}"></div>
                                     <div class="text-r205g234b255" style="margin-left: 0.7291vw;">{{item.status}}</div>
                                 </div>
                             </td>
-                            <td class="" style="padding:1.25vw;">
+                            <td class="" style="width:5%">
                                 <div class="flex flex-row items-center cursor-pointer">
-                                    <div class=" text-r0g230b151 mx-auto underline">编辑</div>
-                                    <div class="text-red-500 mx-auto underline">删除</div>
-                                    <div class=" text-r77g163b207 underline mx-auto">启用</div>
+                                    <div class=" text-r0g230b151 mx-auto underline action-btn">编辑</div>
+                                    <div class="text-red-500 mx-auto underline action-btn">删除</div>
+                                    <div class=" text-r77g163b207 underline mx-auto action-btn">启用</div>
                                 </div>
                             </td>
                         </tr>
@@ -205,6 +205,9 @@ export default {
 }
 .yard_tb {
     margin-top: 2.0833vw;
+}
+.yard_tb .action-btn:hover {
+    font-size: 0.871456vw;
 }
 .pagination .pagination_item {
     width: 1.5625vw;

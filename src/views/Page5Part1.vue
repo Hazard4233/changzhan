@@ -48,19 +48,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(item, index) in tb_data" :key="index + 'id'" class="text-center" :class="{'hidden': index > num_per_page - 1}">
-                            <td class=" text-r205g234b255" style="padding:1.25vw;">{{addZeroToInt(index + 1)}}</td>
-                            <td class=" text-r205g234b255" style="padding:1.25vw;">{{item.name}}</td>
-                            <td class=" text-r205g234b255" style="padding:1.25vw;">{{item.principal}}</td>
-                            <td class=" text-r205g234b255" style="padding:1.25vw;">{{item.phone}}</td>
-                            <td class=" text-r205g234b255" style="padding:1.25vw;">{{item.region}}</td>
-                            <td class="" style="padding:1.25vw;">
+                        <tr v-for="(item, index) in tb_data" :key="index + 'id'" class="text-center" :class="{'hidden': index > num_per_page - 1}" style="height:3.645833vw;">
+                            <td class=" text-r205g234b255" style="width:5%;">{{addZeroToInt(index + 1)}}</td>
+                            <td class=" text-r205g234b255" style="width:20%;">{{item.name}}</td>
+                            <td class=" text-r205g234b255" style="width:10%;">{{item.principal}}</td>
+                            <td class=" text-r205g234b255" style="width:15%;">{{item.phone}}</td>
+                            <td class=" text-r205g234b255" style="width:25%;">{{item.region}}</td>
+                            <td class="">
                                 <div class="flex flex-row items-center cursor-pointer">
-                                    <div class=" text-r77g163b207 underline" >控制台</div>
-                                    <div class=" text-r0g230b151 mx-auto underline">编辑</div>
-                                    <div class=" text-yellow-500 mx-auto underline">分区</div>
-                                    <div class="text-red-500 mx-auto underline">设备</div>
-                                    <div class=" text-r77g163b207 underline">运维人员</div>
+                                    <div class=" text-r77g163b207 underline action-btn" >控制台</div>
+                                    <div class=" text-r0g230b151 mx-auto underline action-btn">编辑</div>
+                                    <div class=" text-yellow-500 mx-auto underline action-btn">分区</div>
+                                    <div class="text-red-500 mx-auto underline action-btn">设备</div>
+                                    <div class=" text-r77g163b207 underline action-btn">运维人员</div>
                                 </div>
                             </td>
                         </tr>
@@ -157,6 +157,9 @@ export default {
 }
 .yard_tb {
     margin-top: 2.0833vw;
+}
+.yard_tb table .action-btn:hover {
+    font-size: 0.871456vw;
 }
 .pagination .pagination_item {
     width: 1.5625vw;

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <Layout />
+      <Layout/>
     </div>
   </div>
 </template>
@@ -10,11 +10,14 @@ import Layout from './components/Layout.vue'
 export default {
   data() {
     return {
-
+      enableLayout: false
     }
   },
   components: {
     Layout
+  },
+  mounted: function() {
+    
   }
 }
 </script>

@@ -161,11 +161,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(item, index) in alarm_tb" :key="index">
-                                <td class="text-r205g234b255 text-center" style="font-size: 0.819672vw;">{{item.type}}</td>
-                                <td class="text-r205g234b255 text-center" style="font-size: 0.819672vw;">{{item.event}}</td>
-                                <td class="text-r205g234b255 text-center" style="font-size: 0.819672vw;">{{item.time}}</td>
-                                <td class="text-r0g230b151 text-center" style="font-size: 0.819672vw;">{{item.action}}</td>
+                            <tr v-for="(item, index) in alarm_tb" :key="index" style="heigth:2.916666vw;">
+                                <td class="text-r205g234b255 text-center" style="font-size: 0.819672vw; width: 25%;">{{item.type}}</td>
+                                <td class="text-r205g234b255 text-center" style="font-size: 0.819672vw; width: 25%;">{{item.event}}</td>
+                                <td class="text-r205g234b255 text-center" style="font-size: 0.819672vw; width: 30%;">{{item.time}}</td>
+                                <td class="text-r0g230b151 text-center cursor-pointer action-btn">{{item.action}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -173,9 +173,13 @@
             </div>
         </div>
         <div class="flex flex-col ml-auto">
-            <div class="page4_part6"></div>
+            <div class="page4_part6 relative">
+                <img class="w-full h-full absolute top-0 left-0" src="../assets/img/car_park.png" alt="">
+            </div>
             <div class="page4_part7 mt-auto grid grid-cols-2" style="row-gap:20px;column-gap:auto">
-                <div v-for="(item, index) in [0,1,2,3]" :key="'index' + index" class="page4_part7_item"></div>
+                <div v-for="(item, index) in [0,1,2,3]" :key="'index' + index" class="page4_part7_item relative">
+                    <img class="w-full h-full absolute top-0 left-0" src="../assets/img/page4_part7_item.png" alt="">
+                </div>
             </div>
         </div>
     </div>
@@ -382,24 +386,6 @@ export default {
                 categoryData.push(`${index + 1}月`)
                 chartdata.push(Math.round(Math.random() * 420))
             }
-            // let itemcolor = {
-            //     type: 'linear',
-            //     colorStops: [
-            //         {
-            //             offset: 0,
-            //             color: 'rgba(6, 120, 157,1)',
-            //         },
-            //         {
-            //             offset: 0.5,
-            //             color: 'rgba(6, 120, 157,0.2)',
-            //         },
-            //         {
-            //             offset: 1,
-            //             color: 'rgba(6, 120, 157,1)',
-            //         },
-            //     ],
-            // };
-
             var option = {
                 textStyle: {
                     color: '#c0c3cd',
@@ -455,13 +441,6 @@ export default {
                         color: '#cdeaff',
                         fontSize: 13 * this.px_rate,
                     },
-                    // axisTick: {
-                    //     lineStyle: {
-                    //         color: '#668092',
-                    //         width: 1,
-                    //     },
-                    //     show: true,
-                    // },
                     splitLine: {
                         show: false,
                     },
@@ -510,14 +489,6 @@ export default {
                             color: '#fff',
                         },
                     },
-                    // {
-                    //     data: [1, 1, 1, 1, 1, 1],
-                    //     type: 'pictorialBar',
-                    //     barMaxWidth: '20',
-                    //     symbol: 'diamond',
-                    //     symbolOffset: [0, '50%'],
-                    //     symbolSize: [20, 10],
-                    // },
                     {
                         data: chartdata,
                         type: 'pictorialBar',
@@ -536,6 +507,18 @@ export default {
             bar_chart.setOption(option)
         },
         clickYMD(event) {
+            var bar_chart = window.echarts.init(document.getElementById('bar_chart'))
+            var option = bar_chart.getOption()
+            var random_data = []
+            var categoryData = []
+            for (let index = 0; index < 12; index++) {
+                categoryData.push(`${index + 1}年`)
+                random_data.push(Math.round(Math.random() * 420))
+            }
+            option.series[0].data = random_data
+            option.series[1].data = random_data
+            option.xAxis.data = categoryData
+            bar_chart.setOption(option)
             if (event.target.classList.contains('underline')) {
                 event.target.classList.remove('text-r77g163b207', 'underline')
                 event.target.classList.add('text-red-600', 'line-through')
@@ -543,7 +526,7 @@ export default {
                 event.target.classList.add('text-r77g163b207', 'underline')
                 event.target.classList.remove('text-red-600', 'line-through')
             }
-        }
+        },
     },
     
 }
@@ -609,6 +592,11 @@ export default {
 .alarm_tb {
     height: 15.911282vw;
 }
-
+.alarm_tb table .action-btn {
+    font-size: 0.819672vw;
+}
+.alarm_tb table .action-btn:hover {
+    font-size: 0.919672vw;
+}
 
 </style>
